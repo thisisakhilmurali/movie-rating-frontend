@@ -1,34 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserAuthService } from '../__services/user-auth.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  // constructor() {}
+export class HomeComponent implements OnInit {
 
 
-  policies: string[]; // Array to hold the list of policies
+  constructor(
+    private userAuthService: UserAuthService, 
+    private router: Router
+    ) { }
 
-  constructor() {
-    this.policies = [
-      'Terms and conditions',
-      'Do Not Call Registry Disclaimer',
-      'Multilingual Disclaimer',
-      'Code of Commitment',
-      'Group Code of Business Conduct and Ethics',
-      'Customer Service Policies',
-      'Use of Unparliamentary Language by Customers',
-      'Privacy',
-      'Fair Practice Code for Lenders'
-    ];
+
+    /*
+
+    private userService: UserService
+
+    public getUserService(): UserService {
+    return this.userService;
+    }
+
+    <a *ngIf="getUserService().roleMatch(['Admin'])"> </a>
+    <a *ngIf="getUserService().roleMatch(['User'])"> </a>
+
+    */
+
+  ngOnInit(): void {
+    
+  }
+
+  public isLoggedIn() {
+    return this.userAuthService.isLoggedIn();
+  }
+
+  public logOut() {
+    this.userAuthService.clearAllTraces();
+    this.router.navigate(['/home'])
   }
 
 
   selectedOption: string = 'name';
   searchValue: string = '';
   searchPlaceholder: string = 'Enter a movie name';
+
   search() {
     if (this.selectedOption === 'name') {
       console.log('Searching by name:', this.searchValue);
@@ -36,6 +54,7 @@ export class HomeComponent {
       console.log('Searching by date:', this.searchValue);
     }
   }
+
   onSelectedOptionChange() {
     this.searchValue = ''; // Clear the search field
     if (this.selectedOption === 'name') {

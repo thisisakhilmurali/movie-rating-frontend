@@ -23,14 +23,12 @@
  </div>
     
     
-      <a class="btn btn-primary" href="/login">Login</a>
+      <a *ngIf="!isLoggedIn()" class="btn btn-primary" routerLink="/login">Login</a>
+      <a *ngIf="isLoggedIn()" class="btn btn-primary" (click)="logOut()">Logout</a>
 
 
  </nav>
   
-
- 
-
 
 
   <!-- Carousel -->
@@ -78,7 +76,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../../assets/image10.jpg" class="d-block w-100" alt="..." width="100" height="100">
+                <img src="../../assets/sm1.jpg" class="d-block w-100" alt="..." width="100" height="100">
                 <div class="carousel-caption d-none d-md-block">
                   <h5>Spider-Man: Into the Spider-Verse</h5>
                   <p>Miles Morales is juggling his life between being a high school student and being a spider-man. When Wilson "Kingpin" Fisk uses a super collider, others from across the Spider-Verse are transported to this dimension.</p>
@@ -124,20 +122,6 @@
         </button>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
 
 
@@ -249,41 +233,7 @@
 
 
 
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
 <footer>
-
-  <div class="policy">
-    <ng-container *ngFor="let policy of policies; let last = last">
-      <div class="policy-item">{{ policy }}</div>
-      <span *ngIf="!last" class="policy-separator">|</span>
-    </ng-container>
-  </div>
-  
-  
-
-
-
-
-
   <div class="social-icons">
     <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -292,32 +242,6 @@
   </div>
   <p>Copyright© 2023. All rights Reserved.</p>
 </footer>
-
-  
-
-
-
-
-
-
-
-<script>
-  $(document).ready(function() {
-    // Switch placeholder text based on dropdown selection
-    $('#search-by-date').on('click', function(event) {
-      event.preventDefault();
-      $('.search-input').attr('placeholder', 'Search movie by Date');
-      $('#dropdownMenuButton').text('Date');
-    });
-
-    $('#search-by-name').on('click', function(event) {
-      event.preventDefault();
-      $('.search-input').attr('placeholder', 'Search movie by Name');
-      $('#dropdownMenuButton').text('Name');
-    });
-  });
-</script>
-
 
 
 

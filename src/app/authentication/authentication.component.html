@@ -7,7 +7,8 @@
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#signupTab">Sign Up</a>
    
-    <button type="button" class="close" aria-label="Close" (click)="redirectToHomePage()">
+    <button type="button" class="close" aria-label="Close" routerLink="/home">
+
       <span aria-hidden="true">&times;</span>
     </button>
   </li>
@@ -16,45 +17,45 @@
   <div class="tab-content" style="border-color: blue; border-width: 4px;" >
     <div class="tab-pane fade show active" id="loginTab">
       <div class="form-body">
-        <form>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+            <label for="username">Email</label>
+            <input type="text" ngModel class="form-control" id="userName" name="userName" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            <input type="password" ngModel class="form-control" id="userPassword" name="userPassword" placeholder="Enter password" required>
           </div>
           <div class="form-group">
             <a href="#">Forgot password?</a>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <input type="submit" value="Login" class="btn btn-outline-primary form-control">
           </div>
         </form>
       </div>
     </div>
     <div class="tab-pane fade" id="signupTab">
       <div class="form-body">
-        <form>
+        <form #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
           <div class="form-group">
             <label for="firstName">First Name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+            <input type="text" ngModel class="form-control" id="userFirstName" name="userFirstName" placeholder="Enter first name" required>
           </div>
           <div class="form-group">
             <label for="lastName">Last Name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+            <input type="text" ngModel class="form-control" id="userLastName" name="userLastName" placeholder="Enter last name" required>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+            <input type="email" ngModel class="form-control" id="userName" name="userName" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+            <input type="password" ngModel class="form-control" id="userPassword" name="userPassword" placeholder="Enter password" required>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            <input type="submit" value="Register" class="btn btn-outline-primary form-control">
           </div>
         </form>
       </div>

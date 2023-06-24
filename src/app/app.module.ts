@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,9 +12,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminMovieComponentComponent } from './admin-movie-component/admin-movie-component.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
-
-
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { AuthGuard } from './__auth/auth.guard';
+import { AuthInterceptor } from './__auth/auth.interceptor';
+import { UserService } from './__services/user.service';
 
 
 @NgModule({
@@ -25,16 +27,27 @@ import { FormsModule } from '@angular/forms';
     UserMovieComponentComponent,
     AdminDashboardComponent,
     AdminMovieComponentComponent,
+    ForbiddenComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule
 
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
