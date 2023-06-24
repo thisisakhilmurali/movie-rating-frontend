@@ -1,0 +1,62 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #c4c6cf, hsl(206, 40%, 33%));
+  /* background-image: url('../../assets/loginpage.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+
+  /* background-color: aqua; */
+
+  /* border-radius: 100px; */
+  border-color: black ;
+  padding: 20px;
+ height:fit-content;
+ /* background-size: cover; */
+ 
+}
+
+
+.close {
+  position: absolute;
+  margin-right: 10px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  
+}
+
+.nav-item {
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.form-body {
+  padding: 25px;
+  /* border: 20px black; */
+}
+
+/* Rest of your CSS styles... */
+.form-group{
+  width: 350px;
+  color: aliceblue;
+}

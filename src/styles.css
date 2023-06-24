@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* Default styles for all screen sizes */
+
+/* Styles for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+    /* CSS rules specific to smaller screens */
+    .container {
+      /* Example styles for smaller screens */
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  
+  /* Styles for screens with a minimum width of 768px and a maximum width of 992px */
+  @media (min-width: 768px) and (max-width: 992px) {
+    /* CSS rules specific to medium-sized screens */
+    .container {
+      /* Example styles for medium-sized screens */
+      width: 80%;
+      padding: 20px;
+    }
+  }
+  
+  /* Styles for screens with a minimum width of 992px */
+  @media (min-width: 992px) {
+    /* CSS rules specific to larger screens */
+    .container {
+      /* Example styles for larger screens */
+      width: 60%;
+      padding: 30px;
+    }
+  }
+  

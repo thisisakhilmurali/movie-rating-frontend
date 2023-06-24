@@ -9,6 +9,12 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UserMovieComponentComponent } from './user-movie-component/user-movie-component.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminMovieComponentComponent } from './admin-movie-component/admin-movie-component.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -18,11 +24,15 @@ import { AdminMovieComponentComponent } from './admin-movie-component/admin-movi
     UserDashboardComponent,
     UserMovieComponentComponent,
     AdminDashboardComponent,
-    AdminMovieComponentComponent
+    AdminMovieComponentComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./authentication.component.css']
 })
 export class AuthenticationComponent {
+
+
+  redirectToHomePage(): void {
+    window.location.href = "/home"; // Replace "/homepage" with the actual URL of your homepage
+  }
+
 
 }

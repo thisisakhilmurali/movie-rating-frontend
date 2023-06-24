@@ -1,1 +1,65 @@
-<p>authentication works!</p>
+<body>
+<div class="form-container border border-light border-2 rounded-1" style="margin-top: 20px;margin-bottom: 20px;">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#loginTab">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#signupTab">Sign Up</a>
+   
+    <button type="button" class="close" aria-label="Close" (click)="redirectToHomePage()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  </ul>
+
+  <div class="tab-content" style="border-color: blue; border-width: 4px;" >
+    <div class="tab-pane fade show active" id="loginTab">
+      <div class="form-body">
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+          </div>
+          <div class="form-group">
+            <a href="#">Forgot password?</a>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="signupTab">
+      <div class="form-body">
+        <form>
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
