@@ -22,8 +22,11 @@ export class AuthenticationComponent implements OnInit{
     
   }
 
+  isSubmitting: boolean = false;
+
 
   login(loginForm: NgForm) {
+    this.isSubmitting = true;
     this.userService.login(loginForm.value).subscribe(
       (response: any) =>  {
 
@@ -41,6 +44,7 @@ export class AuthenticationComponent implements OnInit{
 
       },
       (error) => {
+        this.isSubmitting = false;
         console.log(error.error.errors);
       }
     );
@@ -48,11 +52,13 @@ export class AuthenticationComponent implements OnInit{
 
 
   signUp(signUpForm: NgForm) {
+    this.isSubmitting = true;
     this.userService.register(signUpForm.value).subscribe(
       (response: any) => {
         console.log("Registration Successful");
       },
       (error) => {
+        this.isSubmitting = false;
         console.log(error.error.errors);
       }
     );
