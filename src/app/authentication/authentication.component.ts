@@ -41,7 +41,7 @@ export class AuthenticationComponent implements OnInit{
 
       },
       (error) => {
-        console.log(error);
+        console.log(error.error.errors);
       }
     );
   }
@@ -53,7 +53,7 @@ export class AuthenticationComponent implements OnInit{
         console.log("Registration Successful");
       },
       (error) => {
-        console.log(error);
+        console.log(error.error.errors);
       }
     );
   }
