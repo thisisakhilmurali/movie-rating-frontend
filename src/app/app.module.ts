@@ -16,6 +16,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthGuard } from './__auth/auth.guard';
 import { AuthInterceptor } from './__auth/auth.interceptor';
 import { UserService } from './__services/user.service';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UserService } from './__services/user.service';
     AdminDashboardComponent,
     AdminMovieComponentComponent,
     ForbiddenComponent,
+    NotFoundComponent,
     
   ],
   imports: [

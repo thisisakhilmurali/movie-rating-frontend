@@ -6,14 +6,16 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthGuard } from './__auth/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path:'login', component:AuthenticationComponent },
-  { path:'home', component:HomeComponent },
-  { path:'user', component:UserDashboardComponent, canActivate: [AuthGuard], data:{roles: ['User']} },
-  { path:'admin', component:AdminDashboardComponent, canActivate: [AuthGuard], data:{roles: ['Admin']} },
-  { path:'forbidden', component:ForbiddenComponent }
+  { path: 'login', component: AuthenticationComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'user', component: UserDashboardComponent, canActivate: [AuthGuard], data:{roles: ['User']} },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard], data:{roles: ['Admin']} },
+  { path: 'forbidden', component: ForbiddenComponent },
+  { path: '**', component: NotFoundComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
