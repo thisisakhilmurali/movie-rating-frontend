@@ -3,24 +3,19 @@
  
 
   
- <nav style="margin: 0px;" class="navbar navbar-expand-sm">
+ <nav [ngClass]="{'navbar': true, 'navbar-expand-sm': true, 'navbar-white': isNavbarWhite}">
   <div class="logo">
     <img src="../../assets/logo.png" width="70" height="90">
   </div>
   
-   
-
   <div class="container">
     <select [(ngModel)]="selectedOption" (ngModelChange)="onSelectedOptionChange()">
-
       <option value="name">Name</option>
-
       <option value="date">Date</option>
-
     </select>
     <input [(ngModel)]="searchValue" [placeholder]="searchPlaceholder" (keyup.enter)="search()" />
     <input type="button" name="search" id="search" value="Search" (click)="search()">
- </div>
+  </div>
     
     
       <a *ngIf="!isLoggedIn()" class="btn btn-primary" routerLink="/login">Login</a>
@@ -229,6 +224,180 @@
     </button>
   </div>
 </div>
+
+
+
+
+
+
+
+<div class="slider-container">
+  <div id="carouselExampleControls3" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Science Fiction</h6>
+      <div class="carousel-item" *ngFor="let movieGroup of scifimovieGroups; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of movieGroup">
+            <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.title }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<div class="slider-container">
+  <div id="carouselExampleControls4" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Romance</h6>
+      <div class="carousel-item" *ngFor="let movieGroup of romancemovieGroups; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of movieGroup">
+            <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.title }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+
+
+<div class="slider-container">
+  <div id="carouselExampleControls5" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Fantacy</h6>
+      <div class="carousel-item" *ngFor="let movieGroup of fantacymovieGroups; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of movieGroup">
+            <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.title }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+  
+  
+
+
+<div class="slider-container">
+  <div id="carouselExampleControls6" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Animation</h6>
+      <div class="carousel-item" *ngFor="let movieGroup of animationmovieGroups; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of movieGroup">
+            <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.title }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+
+
+<div class="slider-container">
+  <div id="carouselExampleControls7" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Thriller</h6>
+      <div class="carousel-item" *ngFor="let movieGroup of thrillermovieGroups; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of movieGroup">
+            <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.title }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls7" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls7" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+
 
 
 
