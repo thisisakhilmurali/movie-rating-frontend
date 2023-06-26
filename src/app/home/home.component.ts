@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private userAuthService: UserAuthService, 
-    private router: Router
+    private router: Router,
     ) { }
 
 
@@ -60,13 +60,20 @@ export class HomeComponent implements OnInit {
   searchValue: string = '';
   searchPlaceholder: string = 'Enter a movie name';
 
+
   search() {
     if (this.selectedOption === 'name') {
       console.log('Searching by name:', this.searchValue);
+      this.searchByName(this.searchValue);
     } else if (this.selectedOption === 'date') {
       console.log('Searching by date:', this.searchValue);
     }
   }
+
+  searchByName(name: string) {
+    console.log(name);
+  }
+
 
   onSelectedOptionChange() {
     this.searchValue = ''; // Clear the search field
@@ -298,9 +305,6 @@ thrillermovieGroups: any[] = [
   ]
   
 ];
-
-
-
 
 
 }

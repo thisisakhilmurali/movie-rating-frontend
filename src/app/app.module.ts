@@ -17,6 +17,7 @@ import { AuthGuard } from './__auth/auth.guard';
 import { AuthInterceptor } from './__auth/auth.interceptor';
 import { UserService } from './__services/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AdminMovieComponentComponent,
     ForbiddenComponent,
     NotFoundComponent,
+    SearchResultsComponent,
     
   ],
   imports: [
