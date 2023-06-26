@@ -56,6 +56,7 @@ export class AuthenticationComponent implements OnInit{
     this.userService.register(signUpForm.value).subscribe(
       (response: any) => {
         console.log("Registration Successful");
+        this.router.navigate(['/success'])
       },
       (error) => {
         this.isSubmitting = false;
