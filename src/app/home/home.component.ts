@@ -30,14 +30,16 @@ export class HomeComponent implements OnInit {
   constructor() {
     this.policies = [
       'Terms and conditions',
-      'Do Not Call Registry Disclaimer',
-      'Multilingual Disclaimer',
-      'Code of Commitment',
-      'Group Code of Business Conduct and Ethics',
-      'Customer Service Policies',
-      'Use of Unparliamentary Language by Customers',
-      'Privacy',
-      'Fair Practice Code for Lenders'
+      'Privacy Policy',
+      'User Conduct Policy',
+      'Content Guidelines',
+      'Copyright Policy',
+      'Review and Rating Guidelines',
+      'User Account Security',
+      'Compliance with Applicable Laws',
+      'Reporting and Moderation Policy',
+      'Dispute Resolution',
+      'Data Collection and Usage Policy'
     ];
   }
 

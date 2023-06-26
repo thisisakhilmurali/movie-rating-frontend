@@ -3,11 +3,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to bottom, #c4c6cf, hsl(206, 40%, 33%));
+  background-color: #1b1b1b;
+  /* background: linear-gradient(to bottom, #c4c6cf, hsl(206, 40%, 33%)); */
   /* background-image: url('../../assets/loginpage.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  
 }
 
 .form-container {
@@ -18,7 +20,7 @@ body {
 
   width: 400px;
 
-  /* background-color: aqua; */
+  background-color: whitesmoke;
 
   /* border-radius: 100px; */
   border-color: black ;
