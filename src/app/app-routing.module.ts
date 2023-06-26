@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthGuard } from './__auth/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'user', component: UserDashboardComponent, canActivate: [AuthGuard], data:{roles: ['User']} },
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard], data:{roles: ['Admin']} },
   { path: 'forbidden', component: ForbiddenComponent },
+  { path: 'search/:movieName', component: SearchResultsComponent },
+  { path: 'search/date/:movieDate', component: SearchResultsComponent },
   { path: '**', component: NotFoundComponent}
 ];
 @NgModule({

@@ -73,9 +73,9 @@ export class HomeComponent implements OnInit {
 
   search() {
     if (this.selectedOption === 'name') {
-      console.log('Searching by name:', this.searchValue);
+      this.router.navigate(['search', this.searchValue]);
     } else if (this.selectedOption === 'date') {
-      console.log('Searching by date:', this.searchValue);
+      this.router.navigate(['search/date', this.searchValue]);
     }
   }
 
