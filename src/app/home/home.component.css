@@ -249,7 +249,7 @@ background-color:black;
 /* margin-bottom: 100px; */
 /* padding-bottom: -40px; */
 /* margin-bottom: -120px; */
-height: 430px;
+height: 500px;
 margin-bottom: 6px;
 margin-top: 30px;
 
@@ -259,7 +259,7 @@ margin-top: 30px;
 
 
 .card .card-img-top {
-width: 200px;
+width: 140px;
 height: 200px;
 border-radius:10px;
 border-bottom-left-radius: 0;
