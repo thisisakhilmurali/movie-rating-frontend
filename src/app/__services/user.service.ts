@@ -18,6 +18,7 @@ export class UserService {
     private userAuthService: UserAuthService
     ) { }
 
+  // user login
   public login(loginData: any) {
     return this.httpClient.post(
       this.PATH_OF_API + "/api/auth/authenticate",
@@ -28,6 +29,7 @@ export class UserService {
       );
   }
 
+  // user register
   public register(signUpData: any) {
     return this.httpClient.post(
       this.PATH_OF_API + "/api/auth/registerNewUser",
