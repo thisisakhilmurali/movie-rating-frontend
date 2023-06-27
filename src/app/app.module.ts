@@ -18,6 +18,8 @@ import { AuthInterceptor } from './__auth/auth.interceptor';
 import { UserService } from './__services/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { ChunkArrayPipe } from './home/chunk-array.pipe';
+
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     ForbiddenComponent,
     NotFoundComponent,
     SearchResultsComponent,
+    ChunkArrayPipe
     
   ],
   imports: [

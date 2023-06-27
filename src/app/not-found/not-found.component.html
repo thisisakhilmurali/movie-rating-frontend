@@ -1,4 +1,32 @@
-<div class="container mt-5">
+ 
+ <nav class="navbar navbar-expand-sm">
+    <div class="logo">
+        <a routerLink="/home">
+          <img src="../../assets/logo.png" width="70" height="90">
+        </a>
+      </div>
+    
+    <div class="container">
+      <select [(ngModel)]="selectedOption" (ngModelChange)="onSelectedOptionChange()">
+        <option value="name">Name</option>
+        <option value="date">Date</option>
+      </select>
+      <input [(ngModel)]="searchValue" [placeholder]="searchPlaceholder" (keyup.enter)="search()" />
+      <input type="button" name="search" id="search" value="Search" (click)="search()">
+    </div>
+
+  
+      
+      
+        <a class="btn btn-primary" routerLink="/login">Login</a>
+       
+  
+  
+   </nav>
+
+
+
+   <div class="container  custom-container">
     <div class="card text-center" style="padding: 20px;">
         <h1>
             The URL that you're looking for does not exist.
@@ -8,3 +36,20 @@
         <a routerLink="/home">Go to Home Page</a>
     </div>
 </div>
+
+
+
+
+
+
+
+<footer>
+    <div class="social-icons">
+      <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>Copyright© 2023. All rights Reserved.</p>
+  </footer>
+  
