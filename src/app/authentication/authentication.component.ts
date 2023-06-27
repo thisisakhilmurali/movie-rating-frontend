@@ -30,8 +30,14 @@ export class AuthenticationComponent implements OnInit{
     this.userService.login(loginForm.value).subscribe(
       (response: any) =>  {
 
+        this.userAuthService.setUserName(response.user.userName);
+        this.userAuthService.setName(response.user.userFirstName + " " + response.user.userLastName);
+
         this.userAuthService.setRole(response.user.role);
         this.userAuthService.setToken(response.jwtToken);
+
+        console.log(this.userAuthService.getName());
+        console.log(this.userAuthService.getUserName());
 
         
         const role = response.user.role[0].roleName;
