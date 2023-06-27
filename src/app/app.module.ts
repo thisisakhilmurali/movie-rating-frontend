@@ -19,6 +19,8 @@ import { UserService } from './__services/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
+import { ChunkArrayPipe } from './home/chunk-array.pipe';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { RegistrationSuccessComponent } from './registration-success/registratio
     NotFoundComponent,
     SearchResultsComponent,
     RegistrationSuccessComponent,
+    ChunkArrayPipe
     
   ],
   imports: [

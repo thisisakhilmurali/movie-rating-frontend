@@ -216,10 +216,6 @@ button, input, optgroup, select, textarea{
 
 .slider-container{
 
-
-/* background-color: #000000; */
-/* padding-bottom: 100px; */
-/* display: flex; */
 margin-bottom: 20px;
 
 height: 6px;
@@ -229,27 +225,32 @@ height: 6px;
 
 
 
+
+
 .slider-container .card{
-margin-right: 15px;
-margin-left: 15px;
+margin-right: 17px;
+margin-left: 17px;
 border-radius: 10px;
-height: 290px;
+height: auto;
+width: 19rem;
 background-color: #000000;
 color:white;
+
 border-color: aqua;
-margin-top: 100px;
+margin-top: 120px;
 
 
 }
 
 
+
+
+
+
 .slider-container .carousel-inner{
 background-color:black;
-/* padding-top: 40px; */
-/* margin-bottom: 100px; */
-/* padding-bottom: -40px; */
-/* margin-bottom: -120px; */
-height: 500px;
+
+height: 510px;
 margin-bottom: 6px;
 margin-top: 30px;
 
@@ -259,8 +260,8 @@ margin-top: 30px;
 
 
 .card .card-img-top {
-width: 140px;
-height: 200px;
+width: auto;
+height: 250px;
 border-radius:10px;
 border-bottom-left-radius: 0;
 border-bottom-right-radius: 0;
@@ -285,14 +286,7 @@ font-size: 15px;
 
 
 
-/* .slider-container .genre-heading{
-color:white;
-padding-left: 100px;
 
-padding-top: 90px;
-
-font-size: 30px
-} */
 
 .slider-container .genre-heading{
 
@@ -314,7 +308,7 @@ font-size: 30px
  -webkit-text-fill-color: transparent;
  animation: textclip 2s linear infinite;
  display: inline-block;
-     font-size: 20px;
+     font-size: 23px;
      padding-left: 110px;
      margin-top: 40px;
     
@@ -331,13 +325,7 @@ font-size: 30px
 }
 
 
-#carouselExampleControls7{
-margin-bottom: 100px;
-}
 
-#carouselExampleControls{
-margin-top: 80px;
-}
 
 
 
@@ -377,7 +365,7 @@ color: white;
 .arrow-icon {
 position: absolute;
 left: 0;
-margin-left: 50px; /* Adjust this value as needed */
+margin-left: 50px; 
 
 
 }
@@ -385,7 +373,7 @@ margin-left: 50px; /* Adjust this value as needed */
 .arrow-icons{
 position: absolute;
 right:0;
-margin-right:52px; /* Adjust this value as needed */
+margin-right:57px; 
 
 
 }
@@ -395,14 +383,27 @@ margin-right:52px; /* Adjust this value as needed */
 .slider-container .carousel-control-prev-icon,
 .slider-container .carousel-control-next-icon {
 display: none;
+
+}
+
+
+#carouselExampleControls{
+  margin-top: 50px;
+}
+
+#carouselExampleControls7{
+  margin-bottom: 25px;
 }
 
 
 
 
+
+
+
 .card-wrapper .card {
-/* transition: transform 0.3s ease; */
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+transition: transform 0.4s ease, box-shadow 0.3s ease;
 }
 
 .card-wrapper .card:hover {
@@ -429,6 +430,10 @@ opacity: 0.8;
 display: flex;
 align-items: center;
 padding-left: 57px;
+overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 5px;
 
 
 }
@@ -458,6 +463,7 @@ footer {
 text-align: center;
 background-color: #f2f2f2;
 padding: 40px;
+margin-top: 70px;
 }
 
 .social-icons a {
