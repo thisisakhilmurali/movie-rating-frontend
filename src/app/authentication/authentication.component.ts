@@ -24,6 +24,8 @@ export class AuthenticationComponent implements OnInit{
 
   isSubmitting: boolean = false;
 
+  successMessage: string = '';
+
 
   login(loginForm: NgForm) {
     this.isSubmitting = true;
@@ -43,19 +45,46 @@ export class AuthenticationComponent implements OnInit{
         const role = response.user.role[0].roleName;
         
         if(role === 'Admin') {
-          this.router.navigate(['/admin']);
+          this.successMessage = "Login Successful!";
+          this.displayResponseAlertForLogin(this.successMessage, 'alert-success');
+          setTimeout(() => {
+            this.router.navigate(['/admin']);
+          }, 1000);
         } else {
-          this.router.navigate(['/user']);
+          this.successMessage = "Login Successful!";
+          this.displayResponseAlertForLogin(this.successMessage, 'alert-success');
+          setTimeout(() => {
+            this.router.navigate(['/user']);
+          }, 1000);
         }
 
       },
       (error) => {
         this.isSubmitting = false;
-        console.log(error.error.errors);
+        this.successMessage = "Invalid Credentials!";
+        this.displayResponseAlertForLogin(this.successMessage, 'alert-danger');
       }
     );
   }
 
+  displayResponseAlertForLogin(message: string, successClass: string) {
+    const alertDiv = document.createElement('div');
+    alertDiv.classList.add('alert', successClass);
+    alertDiv.textContent = message;
+  
+    const container: any = document.getElementById('alertContainer');
+  
+    container.appendChild(alertDiv);
+
+    setTimeout(function() {
+      var alertContainer: any = document.getElementById("alertContainer");
+      alertContainer.innerHTML = ""; 
+    }, 2000); 
+    
+  }
+
+
+  
 
   signUp(signUpForm: NgForm) {
     this.isSubmitting = true;
@@ -63,7 +92,6 @@ export class AuthenticationComponent implements OnInit{
       (response: any) => {
         this.userAuthService.setUserName(response.userName);
         this.userAuthService.setName(response.userFirstName + " " + response.userLastName);
-        console.log("Registration Successful");
         this.router.navigate(['/success'])
       },
       (error) => {
