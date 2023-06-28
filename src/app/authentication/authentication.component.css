@@ -1,10 +1,10 @@
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(to bottom, #c4c6cf, hsl(206, 40%, 33%));
-  /* background-image: url('../../assets/loginpage.jpg'); */
+ 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -18,13 +18,11 @@ body {
 
   width: 400px;
 
-  /* background-color: aqua; */
-
-  /* border-radius: 100px; */
+  
   border-color: black ;
   padding: 20px;
  height:fit-content;
- /* background-size: cover; */
+
  
 }
 
@@ -52,11 +50,11 @@ body {
 
 .form-body {
   padding: 25px;
-  /* border: 20px black; */
+ 
 }
 
-/* Rest of your CSS styles... */
+
 .form-group{
   width: 350px;
   color: aliceblue;
-}
+} */
