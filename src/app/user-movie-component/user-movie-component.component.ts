@@ -6,26 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-movie-component.component.css']
 })
 export class UserMovieComponentComponent 
-// implements OnInit 
+ implements OnInit 
 {
  
-  // constructor() { }
+  constructor() { }
 
-  // ngOnInit(): void {
+  ngOnInit(): void {
     
-  // }
+  }
 
-  // reviewMessage: string = '';
-  // starValue: number = 0;
+  reviewMessage: string = '';
+  starValue: number = 0;
 
-  // submitReview() {
-  //   console.log(this.reviewMessage);
-  //   console.log(this.starValue);
-  // }
+  submitReview() {
+    console.log(this.reviewMessage);
+    console.log(this.starValue);
+  }
 
-  // clearAllData() {
-  //   this.reviewMessage = '';
-  //   this.starValue = 0;
-  // }
+  clearAllData() {
+    this.reviewMessage = '';
+    this.starValue = 0;
+  }
 
 }
