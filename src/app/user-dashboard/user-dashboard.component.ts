@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
+
   isNavbarWhite: boolean = false;
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class UserDashboardComponent implements OnInit {
     this.getMoviesByGenre('Romance');
     this.getMoviesByGenre('Thriller');
     this.getMoviesByGenre('Sci-Fi');
+    this.username = this.userAuthService.getName();
   }
 
   @HostListener('window:scroll', [])
@@ -41,18 +43,12 @@ export class UserDashboardComponent implements OnInit {
     private homeActivityService: HomeActivityService
     ) { }
 
-
-
-
-
-
-
-  
-
+    username: string | null = "";
 
   selectedOption: string = 'name';
   searchValue: string = '';
   searchPlaceholder: string = 'Enter a movie name';
+
   search() {
     if (this.selectedOption === 'name') {
       console.log('Searching by name:', this.searchValue);
@@ -60,6 +56,7 @@ export class UserDashboardComponent implements OnInit {
       console.log('Searching by date:', this.searchValue);
     }
   }
+
   onSelectedOptionChange() {
     this.searchValue = ''; // Clear the search field
     if (this.selectedOption === 'name') {
@@ -68,14 +65,6 @@ export class UserDashboardComponent implements OnInit {
       this.searchPlaceholder = 'Enter a date';
     }
   }
-
-
-
-
-
-
-
-
 
 
 redirectToHomePage(): void {
@@ -87,13 +76,6 @@ redirectToHomePage(): void {
 
   window.location.href = "/home";
 }
-
-
-
-
-
-username: string = "John Doe";
-
 
 
 
