@@ -1,0 +1,194 @@
+/* 
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+  
+}
+
+.container {
+
+
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  
+}
+
+.poster {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+}
+
+.poster img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow:  black;
+  
+}
+
+.details {
+  flex: 1;
+  background-color: black;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+
+   
+   
+   
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.info {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.info span {
+  color: #bbb;
+}
+.info-line {
+  display: flex;
+  align-items: center;
+}
+
+.info-line p {
+  margin: 0;
+}
+.info-line p:not(:last-child) {
+  margin-right: 20px;
+}
+
+
+
+.box1  {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.box2 {
+  display: flex;
+  justify-content: flex-start;
+ 
+}
+.input-box {
+  width: 100%;
+  height: 125px;
+}
+h3{
+  font-family: cursive;
+}
+.submit-button {
+  float: left;
+}
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+
+
+
+
+
+.starrating > input {display: none;}  
+
+.starrating > label:before { 
+content: "\f005";
+margin: 2px;
+font-size: 2em;
+font-family: FontAwesome;
+display: inline-block; 
+}
+
+.starrating > label
+{
+color: #222222;
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } 
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } 
+
+
+
+.movie-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+    height: 100vh;
+}
+
+
+.movie-container:hover .details {
+  width: 100%;
+  height: 800px;
+ 
+}
+
+
+.star {
+  color: yellow;
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+
+.button-container {
+display: flex;
+align-items: center;
+gap: 20px;
+margin-top: 20px;
+}
+
+.add-rating-button {
+font-size: 16px;
+background-color: rgba(8, 8, 8, 0.466);
+border-radius: 25px;
+cursor: pointer;
+color: wheat;
+padding: 12px 24px;
+border: none;
+display: flex;
+align-items: center;
+
+}
+
+.add-rating-button:hover:hover  {
+background-color: rgba(245, 222, 179, 0.192);
+}
+
+
+
+  */

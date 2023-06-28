@@ -1,11 +1,9 @@
-body {
+ body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #1b1b1b;
-  /* background: linear-gradient(to bottom, #c4c6cf, hsl(206, 40%, 33%)); */
-  /* background-image: url('../../assets/loginpage.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -35,7 +33,7 @@ body {
   border-color: black ;
   padding: 20px;
  height:fit-content;
- /* background-size: cover; */
+
  
 }
 
@@ -63,11 +61,11 @@ body {
 
 .form-body {
   padding: 25px;
-  /* border: 20px black; */
+ 
 }
 
-/* Rest of your CSS styles... */
+
 .form-group{
   width: 350px;
   color: aliceblue;
-}
+} 

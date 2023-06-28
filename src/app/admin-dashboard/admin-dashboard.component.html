@@ -1,7 +1,448 @@
-<div class="container mt-5">
-    <div class="card text-center" style="padding: 20px;">
-        <h1>
-            Welcome to Admin Dashboard
-        </h1>
+<html>
+  <body style="padding-top: 0px;">
+ 
+
+  
+ <nav [ngClass]="{'navbar': true, 'navbar-expand-sm': true, 'navbar-white': isNavbarWhite}">
+  <div class="logo">
+    <img src="../../assets/logo.png" width="70" height="90">
+  </div>
+  
+  <div class="container">
+    <select [(ngModel)]="selectedOption" (ngModelChange)="onSelectedOptionChange()">
+      <option value="name">Name</option>
+      <option value="date">Date</option>
+    </select>
+    <input [(ngModel)]="searchValue" [placeholder]="searchPlaceholder" (keyup.enter)="search()" />
+    <input type="button" name="search" id="search" value="Search" (click)="search()">
+  </div>
+    
+  <!-- <a class="btn btn-primary"
+   href="/login">Add Movie</a> -->
+   <!-- <a class="btn btn-primary" href="#addmovie" onclick="openAddMoviePage(event)">Add Movie</a> -->
+   <a class="btn btn-primary" (click)="openAddMovieForm()">Add Movie</a>
+   <a class="btn btn-primary" (click)="logout()">Logout</a>
+   
+</nav>
+
+
+
+
+<!-- Modal -->
+<div class="modal" [ngClass]="{'open': isModalOpen}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add a Movie</h5>
+        
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Movie form -->
+        <form class="my-form"(ngSubmit)="addMovie(movieForm)" #movieForm="ngForm">
+          <div class="form-group">
+            <label for="movieName">Movie Name</label>
+            <input type="text" id="movieName" class="form-control" name="movieName" placeholder="Enter movie name" [(ngModel)]="singleMovie.movieName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Movie Description</label>
+            <input type="text" id="description" class="form-control" name="description" placeholder="Enter the description" [(ngModel)]="singleMovie.description" required>
+          </div>
+
+          <div class="form-group">
+            <label for="movieDirector">Movie Director</label>
+            <input type="text" id="movieDirector" class="form-control" name="movieDirector" placeholder="Enter director name" [(ngModel)]="singleMovie.movieDirector" required>
+          </div>
+
+          <div class="form-group">
+            <label for="movieGenre">Movie Genre</label>
+            <input type="text" id="movieGenre" class="form-control" name="movieGenre" placeholder="Enter genre" [(ngModel)]="singleMovie.movieGenre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="movieReleaseDate">Release Date</label>
+            <input type="text" id="movieReleaseDate" class="form-control" name="movieReleaseDate" placeholder="Enter release date (dd-mm-yyy)" [(ngModel)]="singleMovie.movieReleaseDate" required>
+          </div>
+
+          <div class="form-group">
+            <label for="movieLanguage">Movie Language</label>
+            <input type="text" id="movieLanguage" class="form-control" name="movieLanguage" placeholder="Enter movie language" [(ngModel)]="singleMovie.movieLanguage" required>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="text" id="duration" class="form-control" name="duration" placeholder="Enter the duration" [(ngModel)]="singleMovie.duration" required>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" class="form-control" name="country" placeholder="Enter country of origin" [(ngModel)]="singleMovie.country" required>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Upload Poster</label>
+            <input type="file" id="image" class="form-control-file" name="image" (change)="handleFileInput($event)">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
+
+
+
+
+
+<!-- Horror -->
+
+<div class="slider-container">
+  <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
+    <div class="carousel-inner">
+      <h6 class="genre-heading">Horror</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of horrorMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{ movie.movieName }}</h6>
+              <div class="rating">
+                <span class="rating-value">{{ movie.overallRate }}</span>
+                <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- action -->
+
+<div class="slider-container">
+<div id="carouselExampleControls1" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Action</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of actionMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+
+<!-- comedy -->
+
+
+
+<div class="slider-container">
+<div id="carouselExampleControls2" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Comedy</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of comedyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- Animation -->
+
+
+
+<div class="slider-container">
+<div id="carouselExampleControls3" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Animation</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of animatedMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+
+<!-- Thriller -->
+
+
+
+<div class="slider-container">
+<div id="carouselExampleControls4" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Thriller</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of thrillerMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+
+
+<!-- Fantasy -->
+
+<div class="slider-container">
+<div id="carouselExampleControls5" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Fantasy</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of fantasyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+
+
+<!-- Romance -->
+
+
+
+<div class="slider-container">
+<div id="carouselExampleControls6" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Romance</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of romanticMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+
+<!-- 
+Sci-fi -->
+
+
+
+
+<div class="slider-container">
+<div id="carouselExampleControls7" class="carousel carousel-dark slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <h6 class="genre-heading">Science Fiction</h6>
+
+    
+    <div class="carousel-item" *ngFor="let chunk of scifiMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
+      <div class="card-wrapper container-sm d-flex justify-content-around">
+        <div class="card" *ngFor="let movie of chunk">
+          <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">{{ movie.movieName }}</h6>
+            <div class="rating">
+              <span class="rating-value">{{ movie.overallRate }}</span>
+              <span class="fa fa-star checked"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls7" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls7" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
+  </button>
+</div>
+</div>
+
+
+
+<footer>
+  <div class="social-icons">
+    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <p>Copyright© 2023. All rights Reserved.</p>
+</footer>
+
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
