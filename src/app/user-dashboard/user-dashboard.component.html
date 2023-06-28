@@ -144,18 +144,28 @@
  
 
 
+
+
+
+
+
+
+<!-- Horror -->
+
   <div class="slider-container">
-    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
       <div class="carousel-inner">
-        <h6 class="genre-heading">Recommended</h6>
-        <div class="carousel-item" *ngFor="let movieGroup of actionmovieGroups; let i = index" [class.active]="i === 0">
+        <h6 class="genre-heading">Horror</h6>
+  
+        
+        <div class="carousel-item" *ngFor="let chunk of horrorMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
           <div class="card-wrapper container-sm d-flex justify-content-around">
-            <div class="card" *ngFor="let movie of movieGroup">
-              <img [src]="movie.image" class="card-img-top" alt="...">
+            <div class="card" *ngFor="let movie of chunk">
+              <img [src]="movie.imageUrl" class="card-img-top" alt="...">
               <div class="card-body">
-                <h6 class="card-title">{{ movie.title }}</h6>
+                <h6 class="card-title">{{ movie.movieName }}</h6>
                 <div class="rating">
-                  <span class="rating-value">{{ movie.rating }}</span>
+                  <span class="rating-value">{{ movie.overallRate }}</span>
                   <span class="fa fa-star checked"></span>
                 </div>
               </div>
@@ -163,6 +173,7 @@
           </div>
         </div>
       </div>
+  
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -179,56 +190,22 @@
 
 
 
-
-
-
- <div class="slider-container">
-  <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
-    <div class="carousel-inner">
-      <h6 class="genre-heading">Action</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of actionmovieGroups; let i = index" [class.active]="i === 0">
-        <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
-              <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
-                <span class="fa fa-star checked"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
-    </button>
-  </div>
-</div>
-
-
-
-
-
+<!-- action -->
 
 <div class="slider-container">
   <div id="carouselExampleControls1" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Comedy</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of comedymovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Action</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of actionMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -236,6 +213,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -251,21 +229,24 @@
 
 
 
+<!-- comedy -->
 
 
 
 <div class="slider-container">
   <div id="carouselExampleControls2" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Horror</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of horrormovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Comedy</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of comedyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -273,6 +254,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls2" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -290,18 +272,24 @@
 
 
 
+<!-- Animation -->
+
+
+
 <div class="slider-container">
   <div id="carouselExampleControls3" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Science Fiction</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of scifimovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Animation</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of animatedMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -309,11 +297,12 @@
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls3" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="arrow-icons"><i class="fa fa-angle-double-right"></i></span>
     </button>
@@ -323,18 +312,25 @@
 
 
 
+
+<!-- Thriller -->
+
+
+
 <div class="slider-container">
   <div id="carouselExampleControls4" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Romance</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of romancemovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Thriller</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of thrillerMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -342,6 +338,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls4" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -355,18 +352,25 @@
 
 
 
+
+
+
+<!-- Fantacy -->
+
 <div class="slider-container">
   <div id="carouselExampleControls5" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Fantacy</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of fantacymovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Fantasy</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of fantasyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -374,6 +378,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -385,22 +390,29 @@
   </div>
 </div>
 
-  
-  
+
+
+
+
+
+<!-- Romance -->
+
 
 
 <div class="slider-container">
   <div id="carouselExampleControls6" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Animation</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of animationmovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Romance</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of romanticMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -408,6 +420,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -421,18 +434,27 @@
 
 
 
+
+<!-- 
+Sci-fi -->
+
+
+
+
 <div class="slider-container">
   <div id="carouselExampleControls7" class="carousel carousel-dark slide" data-bs-ride="false">
     <div class="carousel-inner">
-      <h6 class="genre-heading">Thriller</h6>
-      <div class="carousel-item" *ngFor="let movieGroup of thrillermovieGroups; let i = index" [class.active]="i === 0">
+      <h6 class="genre-heading">Science Fiction</h6>
+
+      
+      <div class="carousel-item" *ngFor="let chunk of scifiMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
-          <div class="card" *ngFor="let movie of movieGroup">
-            <img [src]="movie.image" class="card-img-top" alt="...">
+          <div class="card" *ngFor="let movie of chunk">
+            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
             <div class="card-body">
-              <h6 class="card-title">{{ movie.title }}</h6>
+              <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
-                <span class="rating-value">{{ movie.rating }}</span>
+                <span class="rating-value">{{ movie.overallRate }}</span>
                 <span class="fa fa-star checked"></span>
               </div>
             </div>
@@ -440,6 +462,7 @@
         </div>
       </div>
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls7" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="arrow-icon"><i class="fa fa-angle-double-left"></i></span>
@@ -461,14 +484,10 @@
 
 
 
+
 <footer>
 
-  <div class="policy">
-    <ng-container *ngFor="let policy of policies; let last = last">
-      <div class="policy-item">{{ policy }}</div>
-      <span *ngIf="!last" class="policy-separator">|</span>
-    </ng-container>
-  </div>
+  
   
   
 
