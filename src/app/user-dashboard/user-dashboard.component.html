@@ -127,24 +127,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
 <!-- Horror -->
 
   <div class="slider-container">
@@ -156,7 +138,7 @@
         <div class="carousel-item" *ngFor="let chunk of horrorMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
           <div class="card-wrapper container-sm d-flex justify-content-around">
             <div class="card" *ngFor="let movie of chunk">
-              <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+              <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
               <div class="card-body">
                 <h6 class="card-title">{{ movie.movieName }}</h6>
                 <div class="rating">
@@ -196,7 +178,7 @@
       <div class="carousel-item" *ngFor="let chunk of actionMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -237,7 +219,7 @@
       <div class="carousel-item" *ngFor="let chunk of comedyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -280,7 +262,7 @@
       <div class="carousel-item" *ngFor="let chunk of animatedMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -321,7 +303,7 @@
       <div class="carousel-item" *ngFor="let chunk of thrillerMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -361,7 +343,7 @@
       <div class="carousel-item" *ngFor="let chunk of fantasyMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -403,7 +385,7 @@
       <div class="carousel-item" *ngFor="let chunk of romanticMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">
@@ -445,7 +427,7 @@ Sci-fi -->
       <div class="carousel-item" *ngFor="let chunk of scifiMovies | chunkArray: 5; let i = index" [class.active]="i === 0">
         <div class="card-wrapper container-sm d-flex justify-content-around">
           <div class="card" *ngFor="let movie of chunk">
-            <img [src]="movie.imageUrl" class="card-img-top" alt="...">
+            <a [routerLink]="['/umovie-dash', movie.movieId]"><img [src]="movie.imageUrl" class="card-img-top" alt="..."></a>
             <div class="card-body">
               <h6 class="card-title">{{ movie.movieName }}</h6>
               <div class="rating">

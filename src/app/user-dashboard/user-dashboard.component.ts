@@ -80,11 +80,7 @@ redirectToHomePage(): void {
 }
 
 
-
-
-
-
-actionMovies: Movie[] = [];
+  actionMovies: Movie[] = [];
   horrorMovies: Movie[] = [];
   comedyMovies: Movie[] = [];
   animatedMovies: Movie[] = [];
@@ -99,6 +95,7 @@ actionMovies: Movie[] = [];
         switch (genre) {
           case 'Action':
             this.actionMovies = movies;
+            // console.log(this.actionMovies[0].movieId)
             break;
           case 'Horror':
             this.horrorMovies = movies;

@@ -36,5 +36,10 @@ export class HomeActivityService {
     return this.httpClient.get<Movie[]>(url);
   }
 
+  getMovieById(movieId: number): Observable<Movie> {
+    const url = `${this.baseUrl}/api/home/getByMovieId/${movieId}`;
+    return this.httpClient.get<Movie>(url);
+  }
+
 
 }

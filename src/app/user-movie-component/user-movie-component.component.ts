@@ -1,31 +1,59 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Movie } from '../model/movie';
+import { HomeActivityService } from '../__services/home-activity.service';
 
 @Component({
   selector: 'app-user-movie-component',
   templateUrl: './user-movie-component.component.html',
   styleUrls: ['./user-movie-component.component.css']
 })
-export class UserMovieComponentComponent 
-// implements OnInit 
-{
+export class UserMovieComponentComponent implements OnInit {
  
-  // constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private homeActivityService: HomeActivityService
+    ) { }
 
-  // ngOnInit(): void {
-    
-  // }
+  theMovieId: number = 0;
+  selectedMovie: Movie = new Movie();
 
-  // reviewMessage: string = '';
-  // starValue: number = 0;
+  ngOnInit(): void {
+    this.theMovieId =  this.activatedRoute.snapshot.params['movieId'];
+    this.findMovieById(this.theMovieId);
+  }
 
-  // submitReview() {
-  //   console.log(this.reviewMessage);
-  //   console.log(this.starValue);
-  // }
 
-  // clearAllData() {
-  //   this.reviewMessage = '';
-  //   this.starValue = 0;
-  // }
+  findMovieById(theMovieId: number) {
+    this.homeActivityService.getMovieById(theMovieId).subscribe(
+        (response) => {
+          this.selectedMovie.movieName = response.movieName;
+          this.selectedMovie.movieDescription = response.movieDescription;
+          this.selectedMovie.movieReleaseDate = response.movieReleaseDate;
+          this.selectedMovie.movieDirector = response.movieDirector;
+          this.selectedMovie.movieGenre = response.movieGenre;
+          this.selectedMovie.movieLanguage = response.movieLanguage;
+          this.selectedMovie.duration = response.duration;
+          this.selectedMovie.overallRate = response.overallRate;
+          this.selectedMovie.imageUrl = response.imageUrl;
+        },
+        (error) => {
+          console.log("Error: ", error);
+        }
+      )
+  }
+
+  reviewMessage: string = '';
+  starValue: number = 0;
+
+  submitReview() {
+    console.log(this.reviewMessage);
+    console.log(this.starValue);
+  }
+
+  clearAllData() {
+    this.reviewMessage = '';
+    this.starValue = 0;
+  }
 
 }

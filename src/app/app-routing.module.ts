@@ -9,6 +9,7 @@ import { AuthGuard } from './__auth/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { RegistrationSuccessComponent } from './registration-success/registration-success.component';
+import { UserMovieComponentComponent } from './user-movie-component/user-movie-component.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'search/:movieName', component: SearchResultsComponent },
   { path: 'search/date/:movieDate', component: SearchResultsComponent },
   { path: 'success', component: RegistrationSuccessComponent },
+  { path: 'umovie-dash/:movieId',component: UserMovieComponentComponent, canActivate: [AuthGuard], data:{roles: ['User']}},
   { path: '**', component: NotFoundComponent}
 ];
 @NgModule({
