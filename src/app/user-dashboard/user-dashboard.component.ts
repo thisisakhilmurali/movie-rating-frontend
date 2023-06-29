@@ -68,13 +68,15 @@ export class UserDashboardComponent implements OnInit {
 
 
 redirectToHomePage(): void {
-  const confirmation = confirm("Do you want to continue?");
+  // const confirmation = confirm("Do you want to continue?");
 
-  if (!confirmation) {
-    return; // Logout cancelled
-  }
+  // if (!confirmation) {
+  //   return; // Logout cancelled
+  // }
 
-  window.location.href = "/home";
+  // window.location.href = "/home";
+  this.userAuthService.clearAllTraces();
+  this.router.navigate(['/home'])
 }
 
 

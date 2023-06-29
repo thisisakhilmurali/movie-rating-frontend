@@ -87,7 +87,9 @@ export class AdminDashboardComponent implements OnInit {
 
 
   logout(): void {
-    window.location.href = "/home";
+    // window.location.href = "/home";
+    this.userAuthService.clearAllTraces();
+    this.router.navigate(['/home'])
   }
 
 
