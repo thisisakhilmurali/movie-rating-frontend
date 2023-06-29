@@ -1,1 +1,129 @@
-<p>admin-movie-component works!</p>
+
+
+  
+  <body>
+    <div class="movie-container">
+      <div class="poster"></div>
+      <div class="details">
+        <h1>Tangled</h1>
+        <p>Tangled is a 2010 American 3D computer-animated musical adventure fantasy comedy film produced by Walt Disney Animation Studios and released by Walt Disney Pictures.
+            Loosely based on the German fairy tale Rapunzel in the collection of folk tales published by the Brothers Grimm, it is the 50th Disney animated feature film. 
+        </p>
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+          <p style="margin-right: 20px;">Release Date: January 1, 2023</p>
+          <p style="margin-right: 20px;">Director: John Doe</p>
+          <p>Genre: Action</p>
+        </div>
+        <div>
+          <p>Language: English</p>
+          <p>Runtime: 120 minutes</p>
+          <p>Overall Rate: 9</p>
+        </div>
+
+        <div class="button-container">
+            <button class="update-movie-button" data-toggle="modal" data-target="#updateMovieModal">Update Movie</button>
+            <button class="update-movie-button" data-toggle="modal" data-target="#deleteMovieModal">Delete Movie</button>
+          </div>
+    </div>
+    </div>
+  
+    <!-- Update Movie Modal -->
+    <div id="updateMovieModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Update Movie</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="movieTitle">Movie Title</label>
+                <input type="text" class="form-control" id="movieTitle">
+              </div>
+              <div class="form-group">
+                <label for="movieDescription">Movie Description</label>
+                <textarea class="form-control" id="movieDescription"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="director">Movie Director</label>
+                <input type="text" class="form-control" id="director">
+              </div>
+              <div class="form-group">
+                <label for="genre">Movie Genre</label>
+                <input type="text" class="form-control" id="genre">
+              </div>
+              <div class="form-group">
+                <label for="releaseDate">Release Date</label>
+                <input type="date" class="form-control" id="releaseDate">
+              </div>
+            
+           
+              <div class="form-group">
+                <label for="language"> Movie Language</label>
+                <input type="text" class="form-control" id="language">
+              </div>
+             
+              <div class="form-group">
+                <label for="duration">Duration (in minutes)</label>
+                <input type="number"  class="form-control" name="duration" >
+              </div>
+    
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country">
+              </div>
+              <div class="form-group">
+                <label for="image">Choose Image</label>
+                <input type="file" class="form-control-file" id="image">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Movie Modal -->
+<div id="deleteMovieModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Confirm Deletion</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this movie?</p>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-danger" id="deleteConfirmBtn" >Yes</button> -->
+          <button class="btn btn-danger" (click)="confirmDelete()">Yes</button>
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+
+  <!-- <script>
+    // Script to handle delete confirmation and actions
+    document.getElementById("deleteConfirmBtn").addEventListener("click", function() {
+      // Perform the necessary action when "Yes" is clicked
+      // Redirect to the admin dashboard
+      window.location.href = "/admin-dash";
+    });
+  </script> -->
+  
+  
+  </body>
+ 

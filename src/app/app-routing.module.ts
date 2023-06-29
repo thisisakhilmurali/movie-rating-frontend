@@ -4,13 +4,15 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 import { HomeComponent } from './home/home.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserMovieComponentComponent } from './user-movie-component/user-movie-component.component';
+import { AdminMovieComponentComponent } from './admin-movie-component/admin-movie-component.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {path:'login',component:AuthenticationComponent},
   {path:'home',component:HomeComponent},
   {path:'admin-dash',component:AdminDashboardComponent},
-  {path:'user-movie-dash',component:UserMovieComponentComponent}
+  {path:'user-movie-dash',component:UserMovieComponentComponent},
+  {path:'admin-movie-dash',component:AdminMovieComponentComponent}
 
   
  
