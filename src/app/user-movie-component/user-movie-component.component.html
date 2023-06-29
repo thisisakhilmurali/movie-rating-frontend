@@ -66,7 +66,16 @@
   </div>
 
   <h2>Reviews</h2>
-  
+  <div class="user-reviews">
+    <div *ngFor="let review of userReviews" class="user-review">
+     
+      <h3>{{ review.username }}</h3>
+      <p>{{ review.review }}</p>
+    </div>
+  </div>
+
+
+
   <script>
     function submitReview() {
       const rating = getStarRating();

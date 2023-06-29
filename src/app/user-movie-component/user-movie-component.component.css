@@ -129,4 +129,27 @@ background-color: rgba(245, 222, 179, 0.192);
 { color: #ffca08 ;  } 
  
 
+h2{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+
+.user-reviews {
+  margin-top: 20px;
+}
+
+.user-review {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-review h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.user-review p {
+  font-size: 14px;
+  margin-bottom: 0;
+}

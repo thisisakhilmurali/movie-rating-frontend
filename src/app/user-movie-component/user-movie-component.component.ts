@@ -56,4 +56,13 @@ export class UserMovieComponentComponent implements OnInit {
     this.starValue = 0;
   }
 
+  userReviews = [
+    { username: 'JohnDoe', review: 'Great movie!' },
+    { username: 'JaneSmith', review: 'Highly recommended.' },
+    
+  ];
+
+ 
 }
+
+
