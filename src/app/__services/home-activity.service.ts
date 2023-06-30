@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../model/movie';
+import { Rating } from '../model/rating';
 
 @Injectable({
   providedIn: 'root'
@@ -36,9 +37,16 @@ export class HomeActivityService {
     return this.httpClient.get<Movie[]>(url);
   }
 
+  // Method to get the movie by id
   getMovieById(movieId: number): Observable<Movie> {
     const url = `${this.baseUrl}/api/home/getByMovieId/${movieId}`;
     return this.httpClient.get<Movie>(url);
+  }
+
+  // Method to get the movie reviews
+  getAllReviews(movieId: number): Observable<Rating> {
+    const url = `${this.baseUrl}/api/home/getReviews/${movieId}`;
+    return this.httpClient.get<Rating>(url);
   }
 
 

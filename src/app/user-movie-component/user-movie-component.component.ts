@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../model/movie';
 import { HomeActivityService } from '../__services/home-activity.service';
+import { Rating } from '../model/rating';
 
 @Component({
   selector: 'app-user-movie-component',
@@ -21,6 +22,7 @@ export class UserMovieComponentComponent implements OnInit {
   ngOnInit(): void {
     this.theMovieId =  this.activatedRoute.snapshot.params['movieId'];
     this.findMovieById(this.theMovieId);
+    this.getAllReviews(this.theMovieId);
   }
 
 
@@ -43,6 +45,25 @@ export class UserMovieComponentComponent implements OnInit {
       )
   }
 
+  reviews: Rating[] = [];
+
+  getAllReviews(theMovieId: number) {
+    this.homeActivityService.getAllReviews(theMovieId).subscribe(
+      (response) => {
+          this.reviews = Array.isArray(response) ? response : [response];
+          console.log(this.reviews);
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+
+  }
+
+  displayTheReviews() {
+
+  }
+
   reviewMessage: string = '';
   starValue: number = 0;
 
@@ -56,11 +77,11 @@ export class UserMovieComponentComponent implements OnInit {
     this.starValue = 0;
   }
 
-  userReviews = [
-    { username: 'JohnDoe', review: 'Great movie!' },
-    { username: 'JaneSmith', review: 'Highly recommended.' },
+  // userReviews = [
+  //   { username: 'JohnDoe', review: 'Great movie!' },
+  //   { username: 'JaneSmith', review: 'Highly recommended.' },
     
-  ];
+  // ];
 
  
 }
