@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'search/:movieName', component: SearchResultsComponent },
   { path: 'search/date/:movieDate', component: SearchResultsComponent },
   { path: 'success', component: RegistrationSuccessComponent },
-  { path: 'umovie-dash/:movieId',component: UserMovieComponentComponent, canActivate: [AuthGuard], data:{roles: ['User']}},
+  { path: 'umovie-dash/:movieId',component: UserMovieComponentComponent},
   { path: '**', component: NotFoundComponent}
 ];
 @NgModule({
