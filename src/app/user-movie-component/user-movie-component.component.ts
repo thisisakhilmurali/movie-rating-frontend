@@ -60,9 +60,6 @@ export class UserMovieComponentComponent implements OnInit {
 
   }
 
-  displayTheReviews() {
-
-  }
 
   reviewMessage: string = '';
   starValue: number = 0;
@@ -76,12 +73,6 @@ export class UserMovieComponentComponent implements OnInit {
     this.reviewMessage = '';
     this.starValue = 0;
   }
-
-  // userReviews = [
-  //   { username: 'JohnDoe', review: 'Great movie!' },
-  //   { username: 'JaneSmith', review: 'Highly recommended.' },
-    
-  // ];
 
  
 }
