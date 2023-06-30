@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Movie } from '../model/movie';
 import { HomeActivityService } from '../__services/home-activity.service';
 import { Rating } from '../model/rating';
+import { Review } from '../model/review';
+import { UserService } from '../__services/user.service';
 
 @Component({
   selector: 'app-user-movie-component',
@@ -13,7 +15,8 @@ export class UserMovieComponentComponent implements OnInit {
  
   constructor(
     private activatedRoute: ActivatedRoute,
-    private homeActivityService: HomeActivityService
+    private homeActivityService: HomeActivityService,
+    private userService: UserService
     ) { }
 
   theMovieId: number = 0;
@@ -63,10 +66,19 @@ export class UserMovieComponentComponent implements OnInit {
 
   reviewMessage: string = '';
   starValue: number = 0;
+  newRating: Review = new Review();
 
   submitReview() {
-    console.log(this.reviewMessage);
-    console.log(this.starValue);
+    this.newRating.rating = this.starValue;
+    this.newRating.message = this.reviewMessage;
+    this.userService.addReview(this.newRating, this.theMovieId).subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
   }
 
   clearAllData() {

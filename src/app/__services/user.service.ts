@@ -1,6 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserAuthService } from './user-auth.service';
+import { Rating } from '../model/rating';
+import { Observable } from 'rxjs';
+import { Review } from '../model/review';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +59,13 @@ export class UserService {
       }
     }
     return isMatch;
+  }
+
+  // user giving rating
+  public addReview(data: Review, movieId: number): Observable<String> {
+    const userName = this.userAuthService.getUserName();
+    const url = `${this.PATH_OF_API}/api/users/add/rating/movie/${movieId}/${userName}`;
+    return this.httpClient.post<String>(url, data);
   }
 
 
